@@ -145,7 +145,7 @@ Gems_Blog/)
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to appreciate [Microverse](https://github.com/microverseinc) for providing the resources and the platform for us to be a Professional full-stack developer.
+I would like to appreciate Microverse for providing the resources and the platform for us to be a Professional full-stack developer.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
