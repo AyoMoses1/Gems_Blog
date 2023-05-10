@@ -136,7 +136,7 @@ Feel free to check the [issues page](https://github.com/AyoMoses1/Gems_Blog/issu
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please leave a STAR to the [Github repo](https://github.com/AyoMoses1/
+If you like this project please leave a STAR to my [Github repo](https://github.com/AyoMoses1/
 Gems_Blog/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
