@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   after_save :update_user_post_counter
 
   private
-  
+
   def update_user_post_counter
     author.increment!(:postscounter)
   end
