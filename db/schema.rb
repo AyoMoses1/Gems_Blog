@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150542) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "text"
+    t.integer "commentscounter"
+    t.integer "likescounter"
     t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
@@ -49,8 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_150542) do
     t.string "photo"
     t.text "bio"
     t.integer "postscounter"
-    t.integer "commentscounter"
-    t.integer "likescounter"
   end
 
   add_foreign_key "comments", "posts"
