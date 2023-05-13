@@ -11,17 +11,16 @@ RSpec.describe User, type: :model do
     )
   end
 
-  
   let(:first_post) do
-    Post.create(author: user, title: 'Hello 1st', text: 'This is my first post')
+    Post.create(author: user, title: 'Hello First', text: 'This is my first post', likescounter: 1, commentscounter: 0 )
   end
 
   let(:second_post) do
-    Post.create(author: user, title: 'Hello 2nd', text: 'This is my second post')
+    Post.create(author: user, title: 'Hello Second', text: 'This is my second post', likescounter: 2, commentscounter: 0 )
   end
 
   let(:third_post) do
-    Post.create(author: user, title: 'Hello 3rd', text: 'This is my third post')
+    Post.create(author: user, title: 'Hello Third', text: 'This is my third post', likescounter: 3, commentscounter: 0 )
   end
 
   it "name must not be blank" do
@@ -39,6 +38,6 @@ RSpec.describe User, type: :model do
     first_post.save
     second_post.save
     third_post.save
-    expect(user.most_three_recent_posts).to eq(3)
+    expect(subject.most_three_recent_posts.length).to eq(3)
   end
 end

@@ -9,7 +9,11 @@ RSpec.describe Post, type: :model do
     Post.create(author: user, title: 'Hello', text: 'This is my first post')
   end
 
-  subject do
+  let(:comment) do
+
+  end
+
+  subject(:post) do
     described_class.new(
       title: 'Anything',
       text: 'Anything test',
@@ -45,5 +49,15 @@ RSpec.describe Post, type: :model do
     Post.create(title: 'Second Anything', text: 'Second Anything test', author: user, commentscounter: 0,
                 likescounter: 0)
     expect(user.postscounter).to eq(2)
+  end
+
+  it 'returns its five most recent comments' do
+    subject.save
+    Comment.create(text: 'TEst comments', author: user, post:)
+    Comment.create(text: 'TEst comments',author: user, post:)
+    Comment.create(text: 'TEst comments', author: user, post:)
+    Comment.create(text: 'TEst comments', author: user,post:)
+    Comment.create(text: 'TEst comments', author: user,post:)
+    expect(subject.five_most_recent_comments.length).to eq(5)
   end
 end
