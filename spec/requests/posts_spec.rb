@@ -25,14 +25,14 @@ RSpec.describe 'Posts', type: :request do
       get "/users/#{user.id}/posts/"
     end
 
-    scenario 'returns the correct status' do 
+    scenario 'returns the correct status' do
       expect(response.status).to eq(200)
     end
-  
+
     scenario 'renders the correct template' do
       expect(response).to render_template(:index)
     end
-  
+
     scenario 'returns correct placeholder text in the response body' do
       expect(response.body).to include('Here is a list of posts for a given user')
     end
@@ -43,14 +43,14 @@ RSpec.describe 'Posts', type: :request do
       get "/users/#{user.id}/posts/#{post.id}"
     end
 
-    scenario 'returns the correct status' do 
+    scenario 'returns the correct status' do
       expect(response.status).to eq(200)
     end
-  
+
     scenario 'renders the correct template' do
       expect(response).to render_template(:show)
     end
-  
+
     scenario 'returns correct placeholder text in the response body' do
       expect(response.body).to include('Here is a post for a given user')
     end
