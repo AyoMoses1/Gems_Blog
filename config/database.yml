@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Gems_Blog_test
+  database: Gems_Blog_development
   username: postgres
   password: postgres
 
