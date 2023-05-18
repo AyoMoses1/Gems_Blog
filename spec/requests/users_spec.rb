@@ -41,6 +41,6 @@ describe 'GET /show' do
   end
 
   scenario 'returns correct placeholder text in the response body' do
-    expect(response.body).to include('Here is the details of a user')
+    expect(response.body).to include('A given User detail with posts')
   end
 end
