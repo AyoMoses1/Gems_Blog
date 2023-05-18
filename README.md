@@ -43,7 +43,7 @@
 - **[Use validations for models]**
 - **[Write unit tests for models]**
 - **[Write request tests for models]**
-
+- **[Setup views for models]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
