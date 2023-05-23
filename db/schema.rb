@@ -51,8 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_113405) do
     t.string "photo"
     t.text "bio"
     t.integer "postscounter"
-    t.integer "commentscounter"
-    t.integer "likescounter"
   end
 
   add_foreign_key "comments", "posts"
