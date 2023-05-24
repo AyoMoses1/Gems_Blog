@@ -24,4 +24,19 @@ RSpec.feature 'User show page', type: :feature do
     end
   end
 
+  scenario 'can view a user\'s post' do
+    post = Post.create(author: @user, title: 'Hi people', text: 'Lorem ipsum dolor sit amet.', commentscounter: 0, likescounter: 0)
+    visit user_path(@user)
+    click_link "Post \##{post.id}"
+
+    expect(current_path).to eq(user_post_path(@user, post))
+  end
+
+  scenario 'can view all of a user\'s posts' do
+    visit user_path(@user)
+    click_link 'See all posts'
+
+    expect(current_path).to eq(user_posts_path(@user))
+  end
+
 end
