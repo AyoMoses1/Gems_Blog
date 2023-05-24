@@ -16,5 +16,12 @@ RSpec.feature 'User show page', type: :feature do
     expect(page).to have_content("Number of posts: 6")
     expect(page).to have_content(@user.bio)
   end
-  
+
+  scenario 'displays user\'s three latest posts' do
+    visit user_path(@user.id)
+    @user.posts.limit(3).each do |post|
+      expect(page).to have_content(post.title)
+    end
+  end
+
 end
