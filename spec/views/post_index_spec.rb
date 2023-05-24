@@ -5,7 +5,7 @@ RSpec.feature 'User show page', type: :feature do
   describe "User post index page" do
     before :each do
       @user = User.create(name: 'Tom', photo: 'profile.jpg', bio: 'Software Engineer', postscounter: 3)
-      @post1 = Post.create(author: @user, title: 'Hi people', text: 'Lorem ipsum dolor sit amet.', commentscounter: 0, likescounter: 0)
+      @post1 = Post.create(author: @user, title: 'Hi people', text: 'Lorem ipsum dolor', commentscounter: 0, likescounter: 0)
       @post2 = Post.create(author: @user, title: 'Good', text: 'Consectetur adipiscing elit.', commentscounter: 0, likescounter: 0)
       @post3 = Post.create(author: @user, title: 'Dev', text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', commentscounter: 0, likescounter: 0)
       visit user_posts_path(@user)
@@ -27,10 +27,9 @@ RSpec.feature 'User show page', type: :feature do
       expect(page).to have_content(@post1.title)
     end
 
-    # it "displays some of the post's body" do
-    
-    #   expect(page).to have_text(@post1.text)
-    # end
+    it "displays some of the post's body" do
+      expect(page).to have_text(@post1.text)
+    end
 
     it "displays the first comment on a post" do
       comment1 = Comment.create(text: 'TEst comments', author: @user, post: @post1)
