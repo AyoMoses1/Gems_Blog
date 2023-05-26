@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_112027) do
     t.string "photo"
     t.text "bio"
     t.integer "postscounter"
+<<<<<<< HEAD
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -62,6 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_112027) do
     t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+>>>>>>> e7981a61d1505326e86c805ddaf4ab8e4d6254b7
   end
 
   add_foreign_key "comments", "posts"

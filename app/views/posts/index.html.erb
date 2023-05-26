@@ -7,7 +7,7 @@
 
      <% if  !post.five_most_recent_comments.empty?%>
          <div class ="post_comment">
-     <%post.five_most_recent_comments.each do |comment| %>
+     <%post.five_most_recent_comments.includes(:author).each do |comment| %>
           <%= render 'partials/comment', comment:comment %>
        <% end %>
         </div>
