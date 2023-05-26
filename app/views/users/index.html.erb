@@ -1,5 +1,10 @@
 <h1>Here is a list of all users</h1>
+<div class="sign_out_button">
+   <button>
+     <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+   </button>
+ </div>
 
-<% @users.each do |user| %>
+ <% @users.each do |user| %>
   <%= render 'partials/user', user:user%>
 <%end%>
