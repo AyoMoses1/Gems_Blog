@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   attribute :postscounter, default: 0
   attribute :role, default: 'user'
   devise :database_authenticatable, :registerable,
