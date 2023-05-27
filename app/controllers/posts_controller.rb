@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @current_user = User.find(params[:user_id])
   end
 
   def new
@@ -27,6 +28,12 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    authorize! :delete, @post
+    @post.destroy
+    redirect_to posts_url, notice: 'Post was successfully deleted.'
   end
 
   private

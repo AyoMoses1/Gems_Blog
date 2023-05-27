@@ -10,8 +10,8 @@ class Ability
       can :delete, Post
       can :delete, Comment
     else
-      can :delete, Post, user_id: user.id
-      can :delete, Comment, user_id: user.id
+      can :delete, Post, author_id: user.id
+      can :delete, Comment, author_id: user.id
     end
   end
 end
