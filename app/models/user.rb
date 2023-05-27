@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  attribute :postscounter, default: 0
+  attribute :role, default: 'user'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :comments, foreign_key: 'author_id'
@@ -10,5 +13,9 @@ class User < ApplicationRecord
 
   def most_three_recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    role == 'admin'
   end
 end
