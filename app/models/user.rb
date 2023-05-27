@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attribute :postscounter, default: 0
+  attribute :role, default: 'user'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :comments, foreign_key: 'author_id'
@@ -6,9 +8,13 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'author_id'
 
   validates :name, presence: true
-  # validates :postscounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :postscounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def most_three_recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    role == 'admin'
   end
 end
