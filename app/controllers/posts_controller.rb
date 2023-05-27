@@ -3,12 +3,22 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @posts }
+      format.json { render json: @posts, status: :ok }
+    end
   end
 
   def show
     @post = Post.find(params[:id])
     @current_user = current_user
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @post.comments }
+      format.json { render json: @post.comments }
+    end
   end
 
   def new
