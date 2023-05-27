@@ -9,11 +9,6 @@
   <div>
     <p><%=@post.text%></p>
   </div>
-  <div class="post">
-    <% if can? :delete, @post %>
-      <%= link_to 'Delete', user_post_path(@current_user, @post), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </div>
     </div>
     <% if  !@post.comments.empty?%>
       <div class ="post_detail_comment">

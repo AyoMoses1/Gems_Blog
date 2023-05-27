@@ -35,7 +35,8 @@ class PostsController < ApplicationController
   def destroy
     authorize! :delete, @post
     @post.destroy
-    @current_user.posts_counter -= 1
+    @current_user.postscounter -= 1
+    @current_user.save
     redirect_to user_posts_path(current_user), notice: 'Post was successfully deleted.'
   end
 
