@@ -1,5 +1,15 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
+
+
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+    respond_to do |format|
+      format.json { render json: @comments }
+    end
+  end
+
   def new
     @comment = Comment.new
   end
@@ -8,12 +18,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.author = current_user
-    if @comment.save
-      @user = User.find(params[:user_id])
-      redirect_to user_post_path(@user, @post)
-    else
-      render :new
-    end
+    
   end
 
   def destroy
